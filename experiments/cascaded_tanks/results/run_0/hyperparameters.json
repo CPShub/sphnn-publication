@@ -1,0 +1,46 @@
+{
+    "meta": {
+        "description": "Hyperparameters used in paper.",
+        "num_instances": 20
+    },
+    "sPHNN": {
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros"
+    },
+    "sPHNN-LM": {
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros"
+    },
+    "PHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "NODE": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "tanh"
+    },
+    "cPHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus",
+        "beta": 0.1,
+        "beta_learnable": false
+    },
+    "training": {
+        "batch_size": 5,
+        "steps": 50000,
+        "learning_rate": 0.0005
+    }
+}

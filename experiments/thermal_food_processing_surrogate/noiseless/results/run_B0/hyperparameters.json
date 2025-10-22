@@ -1,0 +1,53 @@
+{
+    "meta": {
+        "description": "First attempt at checking the influence of using more training data on the performance of the models. The cPHNNs were added at a later point.",
+        "num_instances": 20,
+        "augmentations": [
+            3
+        ],
+        "nums_train_trajectories": [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15
+        ]
+    },
+    "sPHNN": {
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros"
+    },
+    "sPHNN-LM": {
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "minimum_initializer_std": 1.0
+    },
+    "PHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "NODE": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "cPHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus",
+        "beta": 0.1,
+        "beta_learnable": false
+    },
+    "training": {
+        "batch_size": 16,
+        "steps": 30000,
+        "learning_rate": 0.0001
+    }
+}

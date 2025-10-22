@@ -1,0 +1,2 @@
+The additive manufacturing surrogate experiment requires external data. 
+Make sure this folder contains the files ```data.npz``` and ```mesh.nas``` available from this [DropBox folder](https://www.dropbox.com/scl/fo/btn232lscruz9znrr1os6/AHoDbqnibIqJkoyVmih40X0?rlkey=9xm1a0t8iu4wyxbe5x6s970vw&st=mugczjr7&dl=0)

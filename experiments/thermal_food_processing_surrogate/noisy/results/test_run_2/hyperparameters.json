@@ -1,0 +1,43 @@
+{
+    "meta": {
+        "description": "Testing the noisy_chicken_data_study_parallel script",
+        "num_instances": 2,
+        "augmentations": [3],
+        "nums_train_trajectories": [2],
+        "noise_amplitude": [0.05, 0.15]
+    },
+    "sPHNN": {
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros"
+    },
+    "PHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "NODE": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "cPHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus",
+        "beta": 0.1,
+        "beta_learnable": false
+    },
+    "training": {
+        "batch_size": 16,
+        "steps": 30000,
+        "learning_rate": 0.0001
+    }
+}

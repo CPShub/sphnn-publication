@@ -1,0 +1,48 @@
+{
+    "meta": {
+        "description": "First attempt at final result",
+        "num_instances": 20,
+        "max_range_augmentations": 3
+    },
+    "sPHNN": {
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros"
+    },
+    "sPHNN-LM": {
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "minimum_initializer_std": 1.0
+    },
+    "PHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "NODE": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "cPHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus",
+        "beta": 0.1,
+        "beta_learnable": false
+    },
+    "training": {
+        "batch_size": 5,
+        "steps": 30000,
+        "learning_rate": 0.0001
+    }
+}

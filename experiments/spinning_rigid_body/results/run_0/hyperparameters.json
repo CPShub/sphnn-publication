@@ -1,0 +1,61 @@
+{
+    "meta": {
+        "description": "Now with sNODE. Added cPHNN at a later point.",
+        "num_instances": 10
+    },
+    "sPHNN": {
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros"
+    },
+    "sPHNN-LM": {
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "minimum_initializer_std": 1
+    },
+    "PHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "NODE": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "sNODE": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "activation": "softplus",
+        "ficnn_width": 16,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "alpha": 0.01,
+        "epsilon": 0.1
+    },
+    "cPHNN": {
+        "mlp_width": 16,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus",
+        "beta": 0.1,
+        "beta_learnable": false
+    },
+    "training": {
+        "deriv_batch_size": 128,
+        "deriv_steps": 50000,
+        "deriv_learning_rate": 0.001,
+        "traj_batch_size": 32,
+        "traj_steps": 0,
+        "traj_learning_rate": 0.0001
+    }
+}

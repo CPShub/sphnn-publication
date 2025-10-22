@@ -1,0 +1,41 @@
+[project]
+name = "sPHNN"
+version = "0.1"
+description = "Machine learning tools for dynamic systems and more build on JAX"
+authors = [
+    { name = "Fabian Roth", email = "roth@cps.tu-darmstadt.de" },
+]
+maintainers = [
+    { name = "Fabian Roth", email = " roth@cps.tu-darmstadt.de" }
+]
+readme = "README.md"
+requires-python = ">=3.10, <3.12"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent "
+]
+dependencies = [
+    "diffrax == 0.5.1", # Numerical integration for NODEs
+    "equinox == 0.11.4", # Easy NNs and more
+    "jax == 0.4.28", # Automatic differentiation, vectorization and parallelization
+    "jaxlib == 0.4.28", # Is needed for JAX - i think?
+    "matplotlib == 3.9.0", # Plotting
+    "numpy == 1.26.4",
+    "optax == 0.2.2", # Implementations of many optimizers for ML
+    "scipy == 1.13.1",
+    "meshio == 5.3.5",
+    "pyvista == 0.44.2",
+    "phaseportrait",
+    "ipykernel",
+    "pandas>=2.3.1",
+    "tabulate>=0.9.0",
+    "pyqt6>=6.9.1",
+    "great-tables>=0.18.0",
+    "pyvistaqt>=0.11.3",
+    "jinja2>=3.1.6",
+]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"

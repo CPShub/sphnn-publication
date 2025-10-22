@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "description": "Attempt at final run with 40 latent dimensions. Added now cPHNN afterwards.",
+        "num_instances": 20,
+        "latent_state_size": 40,
+        "latent_input_size": 40
+    },
+    "data": {
+        "training_parameters": [
+            [
+                10.0,
+                300.0
+            ],
+            [
+                20.0,
+                500.0
+            ]
+        ]
+    },
+    "sPHNN": {
+        "ficnn_width": 32,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros"
+    },
+    "sPHNN-LM": {
+        "ficnn_width": 32,
+        "ficnn_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "minimum_initializer_std": 0.1
+    },
+    "PHNN": {
+        "mlp_width": 32,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "NODE": {
+        "mlp_width": 32,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus"
+    },
+    "cPHNN": {
+        "mlp_width": 32,
+        "mlp_depth": 2,
+        "weight_initialization": "glorot_uniform",
+        "bias_initialization": "zeros",
+        "activation": "softplus",
+        "beta": 0.1,
+        "beta_learnable": false
+    },
+    "training": {
+        "deriv_batch_size": 128,
+        "deriv_steps": 20000,
+        "deriv_learning_rate": 0.001,
+        "traj_batch_size": 32,
+        "traj_steps": 10000,
+        "traj_learning_rate": 1e-05
+    }
+}
