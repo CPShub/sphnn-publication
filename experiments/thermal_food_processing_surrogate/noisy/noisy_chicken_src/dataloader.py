@@ -4,7 +4,7 @@ import jax.numpy as jnp
 import jax.random as jr
 import numpy as np
 from dynax.data_handling import Normalizer
-from .datareader import load_chicken, load_long_chicken
+from .datareader import load_chicken
 
 fair_test_groups = {
         "AP15":     [313, 320, 344, 378, 383, 407, 412, 415, 461, 462, 466, 467, 474, 508, 528,],
@@ -61,7 +61,6 @@ def prepare_data(
     # Stitch together the training data
     ts_train, ys_train, us_train = load_chicken(train_ids)
     ts_vali, ys_vali, us_vali = load_chicken(test_ids)
-    ts_long, y_long, u_long = load_long_chicken()
 
     # ### Compute the normalized data ###
     # The models are trained on normalized data and then the trained models are wrapped
@@ -79,29 +78,12 @@ def prepare_data(
     us_scale = jnp.std(us_train - us_shift)
     u_normalizer = Normalizer(us_shift, us_scale)
 
-    # ### Create delayed test data ###
-    n_shift = 200  # Number of samples that the trajectories are delayed by
-    assert np.all(ts_vali == 5 * np.arange(ts_vali.size)), (
-        "The assumption that ts_vali is equidistant with a sample period of 5s is not ture. This means that the code generating the delayed data will produce the right test data and should be changed."
-    )
-    ts_test_delayed = 5 * np.arange(ts_vali.size + n_shift)
-    assert np.all(ys_vali[:, 0] == ys_shift), (
-        f"All trajectories should start in the equilibrium position T={ys_shift=}"
-    )
-    ys_test_delayed = np.pad(ys_vali, ((0, 0), (n_shift, 0), (0, 0)), mode="edge")
-    assert np.all(us_vali[:, 0] == us_shift), (
-        f"All excitations should start out in the neutral value T={us_shift=}"
-    )
-    us_test_delayed = np.pad(us_vali, ((0, 0), (n_shift, 0), (0, 0)), mode="edge")
-
     # ### Put data into data dict ###
     data = dict(
         train_norm   = DataSet(ts_train, ys_train, us_train).normalize(t_normalizer, y_normalizer, u_normalizer),
         test_norm    = DataSet(ts_vali, ys_vali, us_vali).normalize(t_normalizer, y_normalizer, u_normalizer),
         train        = DataSet(ts_train, ys_train, us_train),
         test         = DataSet(ts_vali, ys_vali, us_vali),
-        test_delayed = DataSet(ts_test_delayed, ys_test_delayed, us_test_delayed),
-        long         = DataSet(ts_long, y_long[None, :], u_long[None, :]),
     )
 
     return data, t_normalizer, y_normalizer, u_normalizer

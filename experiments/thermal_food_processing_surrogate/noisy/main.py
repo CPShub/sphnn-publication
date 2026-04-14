@@ -69,8 +69,6 @@ def run(params: dict, return_results=False):
         train=data["train"],
         train_noisy=data["train_noisy"],
         test=data["test"],
-        delayed_test=data["test_delayed"],
-        long_data=data["long"],
     )
 
     # Create results dictionary
